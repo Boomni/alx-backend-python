@@ -3,7 +3,7 @@
 from typing import Callable, Iterator, Optional, List, Tuple
 
 
-def to_kv(k: str, v: [int | float]) -> Tuple[str, float]:
+def to_kv(k: str, v: int | float) -> Tuple[str, float]:
     """
     takes a string k and an int OR float v as arguments
     returns a tuple.
