@@ -5,12 +5,16 @@ The code is nearly identical to wait_n except task_wait_random is being called.
 """
 
 import asyncio
+from typing import List
 
 task_wait_random = __import__('3-tasks').task_wait_random
 
 
-async def task_wait_n(n: int, max_delay: int) -> list:
-    """Spawns wait n times with the spacified max_delay"""
+async def task_wait_n(n: int, max_delay: int) -> List[float]:
+    """
+    Spawns wait_random n times with the specified max_delay
+    Returns delays in ascending order
+    """
     coroutines = [task_wait_random(max_delay) for _ in range(n)]
     result = await asyncio.gather(*coroutines)
     return sorted(result)
