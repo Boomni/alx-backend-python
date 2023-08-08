@@ -9,14 +9,13 @@ List of delays should be ascending order without using sort() cause of
 concurrency.
 """
 import asyncio
+from typing import List
 
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> list:
-    """Spawns wait n times with the spacified max_delay"""
-    result: list = []
-    for x in range(n):
-        delay: float = await wait_random(max_delay)
-        result.append(delay)
-    return result
+async def wait_n(n: int, max_delay: int) -> List[float]:
+    """Spawns wait_random n times with the specified max_delay"""
+    coroutines = [wait_random(max_delay) for _ in range(n)]
+    result = await asyncio.gather(*coroutines)
+    return sorted(result)
