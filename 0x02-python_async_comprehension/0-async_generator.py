@@ -16,8 +16,8 @@ async def async_generator() -> Generator[float, None, None]:
     Loops 10 times
     In each loop asynchroniously waits 1sec & yields random number btw 0 - 10
     I used Generator as return type cos i got to learn you need to use:
-        Iterable: When function returns an object that can be iterated over.
-        Iterator: Returns an iterator, without specifying what type of iterator.
+        Iterable: When function returns an object that can be iterated over
+        Iterator: Returns an iterator, without specifying what type of iterator
         Generator: to explicitly convey that a function returns a generator
                     & possibly specify the types of values that can be sent to
                     or returned from the generator.
