@@ -11,7 +11,7 @@ from typing import Generator
 import random
 
 
-async def async_generator() -> Generator[float]:
+async def async_generator() -> Generator[int, float, None]:
     """
     Loops 10 times
     In each loop asynchroniously waits 1sec & yields random number btw 0 - 10
